@@ -1,0 +1,44 @@
+{
+  "name": "marcado-libre",
+  "version": "1.0.0",
+  "description": "Test practico para aspirantes al área de frontend de Mercado Libre",
+  "author": {
+    "name": "Andres Risso",
+    "email": "andres.risso@outlook.com"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresrisso/meli.git"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "node ./server/index.js",
+    "start:dev": "npm run build && npm start"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "express": "^4.16.3",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.1.0",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-router-dom": "^4.2.2",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  }
+}

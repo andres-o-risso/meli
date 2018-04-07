@@ -1,0 +1,135 @@
+@import (reference) '../../helpers.less';
+
+.header {
+
+    background-color: #FFE600;
+
+    .wrapper:extend(.wrapper all) {
+
+        display: flex;
+        background-color: #FFE600;
+
+    }
+
+    .title {
+
+        margin: 0;
+
+        .logo {
+
+            display: block;
+            width: 53px;
+            height: 36px;
+            text-decoration: none;
+            text-indent: -9000px;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            @media only screen and (-Webkit-min-device-pixel-ratio: 1),
+            only screen and (-moz-min-device-pixel-ratio: 1),
+            only screen and (-o-min-device-pixel-ratio: 1),
+            only screen and (min-device-pixel-ratio: 1) {
+
+                & {
+
+                    background-image: url('/assets/logo.png');
+
+                }
+
+            }
+
+            @media only screen and (-Webkit-min-device-pixel-ratio: 2),
+            only screen and (-moz-min-device-pixel-ratio: 2),
+            only screen and (-o-min-device-pixel-ratio: 2),
+            only screen and (min-device-pixel-ratio: 2) {
+
+                & {
+
+                    background-image: url('/assets/logo@2x.png');
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .search {
+
+        display: flex;
+        flex-grow: 1;
+        padding-left: 1em;
+
+        .text {
+
+            flex-grow: 1;
+            display: block;
+            margin: 0;
+            padding: 0 .75em;
+            border-width: 0;
+            border-radius: 3px 0 0 3px;
+            font-size: 18px;
+            color: #333;
+            background-color: #FFF;
+
+            &::placeholder {
+
+                color: #999;
+
+            }
+
+            &:focus {
+
+                outline: 0;
+
+            }
+
+        }
+
+        .submit {
+
+            display: block;
+            width: 40px;
+            height: 36px;
+            margin: 0;
+            padding: 0;
+            border-width: 0;
+            border-radius: 0 3px 3px 0;
+            text-indent: -9000px;
+            background-color: #EEE;
+            background-repeat: no-repeat;
+            background-size: 18px 18px;
+            background-position: center;
+
+            @media only screen and (-Webkit-min-device-pixel-ratio: 1),
+            only screen and (-moz-min-device-pixel-ratio: 1),
+            only screen and (-o-min-device-pixel-ratio: 1),
+            only screen and (min-device-pixel-ratio: 1) {
+
+                & {
+
+                    background-image: url('/assets/icon_search.png');
+
+                }
+
+            }
+
+            @media only screen and (-Webkit-min-device-pixel-ratio: 2),
+            only screen and (-moz-min-device-pixel-ratio: 2),
+            only screen and (-o-min-device-pixel-ratio: 2),
+            only screen and (min-device-pixel-ratio: 2) {
+
+                & {
+
+                    background-image: url('/assets/icon_search@2x.png');
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
