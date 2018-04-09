@@ -12,6 +12,7 @@ module.exports = (req, res) => {
         const {
             id,
             title,
+            category_id: category,
             currency_id: currency,
             price,
             thumbnail: picture,
@@ -46,11 +47,23 @@ module.exports = (req, res) => {
             description
         };
 
-        return res.json({
-            author,
+        return {
+            category,
             item
+        };
+    })).then(({ category, item }) => {
+
+        axios.get(`${ api_url }/categories/${ category }`).then(category_response => {
+            const { path_from_root } = category_response.data;
+            const categories = path_from_root.map(category => category.name);
+
+            return res.json({
+                author,
+                categories,
+                item
+            });
         });
-    })).catch(error => {
+    }).catch(error => {
         return res.status(500).send(error.message);
     });
 };

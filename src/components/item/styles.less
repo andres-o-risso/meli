@@ -1,3 +1,121 @@
 .item {
 
+    background-color: #FFF;
+    padding: 32px;
+    border-radius: 4px;
+
+    .content {
+
+        display: flex;
+
+        .picture {
+
+            flex-shrink: 0;
+            width: 680px;
+
+            > img {
+
+                display: block;
+                width: 100%;
+
+            }
+
+        }
+
+        .details {
+
+            flex-grow: 1;
+            padding-left: 32px;
+            color: #333;
+
+            .info {
+
+                margin: 0;
+                font-size: 14px;
+
+            }
+
+            .title {
+
+                margin: 16px 0 0;
+                font-size: 24px;
+                font-weight: normal;
+
+            }
+
+            .price {
+
+                margin: 32px 0;
+                font-size: 46px;
+                font-weight: normal;
+
+                .currency {
+
+                    display: inline-block;
+                    margin-right: .25em;
+
+                }
+
+                .separator {
+
+                    display: none;
+
+                }
+
+                .decimals {
+
+                    font-size: .5em;
+                    vertical-align: super;
+
+                }
+
+            }
+
+            .buy {
+
+                display: block;
+                width: 100%;
+                padding: 16px;
+                font-size: 16px;
+                background-color: #348BFA;
+                color: #FFF;
+                border-width: 0;
+                border-radius: 4px;
+
+                &:focus {
+
+                    outline: 0;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .description {
+
+        padding-top: 32px;
+
+        .title {
+
+            margin: 0;
+            font-size: 28px;
+            font-weight: normal;
+
+            color: #333;
+
+        }
+
+        .text {
+
+            margin: 32px 0 0;
+            font-size: 16px;
+            color: #999;
+
+        }
+
+    }
+
 }

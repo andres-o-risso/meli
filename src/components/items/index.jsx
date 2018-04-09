@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import css from './styles.less';
+import { parse } from 'query-string';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { search } from 'store/actions/searches';
 
 const Location = ({ children }) => (
     <div className={ css.location }>{ children }</div>
@@ -47,42 +50,54 @@ const List = ({ items }) => (
     </ul>
 );
 
-export default class Items extends React.Component {
-
-    state = {
-        items: []
-    }
+class Items extends React.Component {
 
     componentDidMount() {
-        let query = {};
-        const { search } = this.props.location;
+        const query = parse(this.props.location.search);
 
-        if (search.length) {
-            query = search.slice(1).split('&').reduce((query, entry) => {
-                const [key, value] = entry.split('=');
-
-                return Object.assign(query, {
-                    [key]: value
-                })
-            }, {});
+        if (!this.props.items) {
+            this.props.search(query.search);
         }
+    }
 
-        axios.get(`/api/items?q=${ query.search }`).then(({ data }) => {
-            this.setState({
-                items: data.items
-            });
-        });
+    componentWillReceiveProps(nextProps) {
+        const prevQuery = parse(this.props.location.search);
+        const nextQuery = parse(nextProps.location.search);
+
+        if (prevQuery.search !== nextQuery.search) {
+            this.props.search(nextQuery.search);
+        }
     }
 
     render() {
-        if (!this.state.items.length) {
+        const { items } = this.props;
+
+        if (!items || items.fetching || items.error) {
+            return null
+        }
+        if (!items.length) {
             return null;
         }
         return (
             <div className={ css.items }>
-                <List items={ this.state.items } />
+                <List items={ items } />
             </div>
         );
     }
 
 }
+
+export default connect(
+    ({ searches }, props) => {
+        const query = parse(props.location.search);
+
+        return {
+            items: searches[query.search]
+        }
+    },
+    dispatch => {
+        return {
+            search: value => dispatch(search(value))
+        }
+    }
+)(Items);

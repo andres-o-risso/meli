@@ -84,7 +84,8 @@ module.exports = {
     resolve: {
         alias: {
             assets: path.resolve(__dirname, 'src', 'assets'),
-            components: path.resolve(__dirname, 'src', 'components')
+            components: path.resolve(__dirname, 'src', 'components'),
+            store: path.resolve(__dirname, 'src', 'store')
         },
         extensions: ['.js', '.json', '.jsx']
     },
